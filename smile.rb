@@ -24,15 +24,8 @@ def chunky_color(color)
   ChunkyPNG::Color.rgb(color.red, color.green, color.blue)
 end
 
-def draw_face(face, left_eye, right_eye, mouth)
+def draw_face(shapes)
   canvas = ChunkyPNG::Canvas.new(600, 600, ChunkyPNG::Color.rgb(200, 200, 255))
-
-  shapes = [
-    Shape.new(face, Color.new(0, 0, 0), Color.new(255, 255, 0)),
-    Shape.new(left_eye, Color.new(0, 0, 0), Color.new(0, 0, 0)),
-    Shape.new(right_eye, Color.new(0, 0, 0), Color.new(0, 0, 0)),
-    Shape.new(mouth, Color.new(0, 0, 0), Color.new(0, 0, 0)),
-  ]
 
   shapes.each do |shape|
     canvas.polygon(shape.points, chunky_color(shape.line_color), chunky_color(shape.fill_color))
