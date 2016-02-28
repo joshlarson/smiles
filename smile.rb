@@ -27,11 +27,16 @@ end
 def draw_face(face, left_eye, right_eye, mouth)
   canvas = ChunkyPNG::Canvas.new(600, 600, ChunkyPNG::Color.rgb(200, 200, 255))
 
-  shape = Shape.new(face, Color.new(0, 0, 0), Color.new(255, 255, 0))
-  canvas.polygon(shape.points, chunky_color(shape.line_color), chunky_color(shape.fill_color))
-  canvas.polygon(left_eye, ChunkyPNG::Color::BLACK, ChunkyPNG::Color::BLACK)
-  canvas.polygon(right_eye, ChunkyPNG::Color::BLACK, ChunkyPNG::Color::BLACK)
-  canvas.polygon(mouth, ChunkyPNG::Color::BLACK, ChunkyPNG::Color::BLACK)
+  shapes = [
+    Shape.new(face, Color.new(0, 0, 0), Color.new(255, 255, 0)),
+    Shape.new(left_eye, Color.new(0, 0, 0), Color.new(0, 0, 0)),
+    Shape.new(right_eye, Color.new(0, 0, 0), Color.new(0, 0, 0)),
+    Shape.new(mouth, Color.new(0, 0, 0), Color.new(0, 0, 0)),
+  ]
+
+  shapes.each do |shape|
+    canvas.polygon(shape.points, chunky_color(shape.line_color), chunky_color(shape.fill_color))
+  end
 
   canvas.save('smile.png')
 end
