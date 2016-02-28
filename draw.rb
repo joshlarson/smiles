@@ -13,7 +13,7 @@ def chunky_points(points)
   end
 end
 
-def draw(shapes)
+def draw(shapes, file_name)
   canvas = ChunkyPNG::Canvas.new(600, 600, ChunkyPNG::Color.rgb(200, 200, 255))
 
   shapes.each do |shape|
@@ -24,5 +24,5 @@ def draw(shapes)
     )
   end
 
-  canvas.save('smile.png')
+  canvas.save(file_name)
 end

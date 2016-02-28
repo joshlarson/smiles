@@ -13,12 +13,11 @@ def transform_points(transformation, points)
   end
 end
 
-def transform(shapes)
+def transform(transformation, shapes)
   shapes.map do |shape|
     Shape.new(
       transform_points(
-        Matrix.new([[0, -1],
-                    [1, 0]]),
+        transformation,
         shape.points
       ),
       shape.line_color,
@@ -39,6 +38,13 @@ shapes = [
   Shape.new(mouth, Color.new(0, 0, 0), Color.new(0, 0, 0)),
 ]
 
-transformed_shapes = transform(shapes)
+a = ARGV[0].to_i
+b = ARGV[1].to_i
+c = ARGV[2].to_i
+d = ARGV[3].to_i
 
-draw(transformed_shapes)
+transformed_shapes = transform(Matrix.new([[a, b],
+                                           [c, d]]),
+                               shapes)
+
+draw(transformed_shapes, "smile_#{a}_#{b}_#{c}_#{d}.png")
