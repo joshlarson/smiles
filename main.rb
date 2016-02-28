@@ -1,5 +1,31 @@
 require_relative 'shapes'
 require_relative 'draw'
+require_relative 'matrix'
+
+def transform_points(transformation, points)
+  points.map do |point|
+    vec = Matrix.new([[point[:x]], [point[:y]]])
+    new_vec = transformation*vec
+    {
+      :x => new_vec.values[0][0],
+      :y => new_vec.values[1][0],
+    }
+  end
+end
+
+def transform(shapes)
+  shapes.map do |shape|
+    Shape.new(
+      transform_points(
+        Matrix.new([[0, -1],
+                    [1, 0]]),
+        shape.points
+      ),
+      shape.line_color,
+      shape.fill_color
+    )
+  end
+end
 
 face = create_circle(0, 0, 125)
 left_eye = create_circle(-50, 50, 20)
@@ -13,4 +39,6 @@ shapes = [
   Shape.new(mouth, Color.new(0, 0, 0), Color.new(0, 0, 0)),
 ]
 
-draw(shapes)
+transformed_shapes = transform(shapes)
+
+draw(transformed_shapes)
