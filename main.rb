@@ -1,10 +1,10 @@
 require_relative 'shapes'
 require_relative 'draw'
 
-face = create_circle(300, 300, 125)
-left_eye = create_circle(250, 250, 20)
-right_eye = create_circle(350, 250, 20)
-mouth = create_arc(300, 300, 100, 0.05, 0.45)
+face = create_circle(0, 0, 125)
+left_eye = create_circle(-50, 50, 20)
+right_eye = create_circle(50, 50, 20)
+mouth = create_arc(0, 0, 100, 0.55, 0.95)
 
 shapes = [
   Shape.new(face, Color.new(0, 0, 0), Color.new(255, 255, 0)),
