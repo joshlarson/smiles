@@ -1,3 +1,23 @@
+class Color
+  attr_accessor :red, :green, :blue
+
+  def initialize(red, green, blue)
+    @red = red
+    @green = green
+    @blue = blue
+  end
+end
+
+class Shape
+  attr_accessor :points, :line_color, :fill_color
+
+  def initialize(points, line_color, fill_color)
+    @points = points
+    @line_color = line_color
+    @fill_color = fill_color
+  end
+end
+
 def create_circle(center_x, center_y, radius)
   points = []
   samples = 100
