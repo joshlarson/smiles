@@ -1,5 +1,5 @@
 require_relative 'shapes'
-require_relative 'smile'
+require_relative 'draw'
 
 face = create_circle(300, 300, 125)
 left_eye = create_circle(250, 250, 20)
@@ -13,4 +13,4 @@ shapes = [
   Shape.new(mouth, Color.new(0, 0, 0), Color.new(0, 0, 0)),
 ]
 
-draw_face(shapes)
+draw(shapes)

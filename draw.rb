@@ -4,7 +4,7 @@ def chunky_color(color)
   ChunkyPNG::Color.rgb(color.red, color.green, color.blue)
 end
 
-def draw_face(shapes)
+def draw(shapes)
   canvas = ChunkyPNG::Canvas.new(600, 600, ChunkyPNG::Color.rgb(200, 200, 255))
 
   shapes.each do |shape|
