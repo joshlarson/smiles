@@ -28,7 +28,7 @@ end
 
 face = create_circle(0, 0, 125)
 left_eye = create_circle(-50, 50, 20)
-right_eye = create_circle(50, 50, 20)
+right_eye = create_arc(50, 50, 20, 0.5, 1.0)
 mouth = create_arc(0, 0, 100, 0.55, 0.95)
 
 shapes = [
@@ -38,10 +38,10 @@ shapes = [
   Shape.new(mouth, Color.new(0, 0, 0), Color.new(0, 0, 0)),
 ]
 
-a = ARGV[0].to_i
-b = ARGV[1].to_i
-c = ARGV[2].to_i
-d = ARGV[3].to_i
+a = ARGV[0].to_f
+b = ARGV[1].to_f
+c = ARGV[2].to_f
+d = ARGV[3].to_f
 
 transformed_shapes = transform(Matrix.new([[a, b],
                                            [c, d]]),
