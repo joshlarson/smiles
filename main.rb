@@ -13,4 +13,4 @@ transformed_shapes = transform(Matrix.new([[a, b],
                                            [c, d]]),
                                face_shapes)
 
-draw(transformed_shapes, "smile_#{a}_#{b}_#{c}_#{d}.png")
+draw(transformed_shapes, "results/smile_#{a}_#{b}_#{c}_#{d}.png")
