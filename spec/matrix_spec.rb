@@ -1,4 +1,4 @@
-require_relative "../matrix"
+require_relative "../lib/matrix"
 
 describe Matrix do
   context "1x1" do
