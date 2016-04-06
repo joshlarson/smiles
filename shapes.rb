@@ -53,3 +53,19 @@ def create_line(x_1, y_1, x_2, y_2)
     {:x => x_1, :y => y_1},
   ]
 end
+
+def interpolate(shape)
+  cycled = shape + [shape[0]]
+  result = []
+  (0..shape.size-1).each do |i|
+    to = cycled[i+1]
+    from = cycled[i]
+    (0..100).each do |factor|
+      result << {
+        :x => to[:x]*(factor/100.0) + from[:x]*(1 - factor/100.0),
+        :y => to[:y]*(factor/100.0) + from[:y]*(1 - factor/100.0),
+      }
+    end
+  end
+  result
+end
