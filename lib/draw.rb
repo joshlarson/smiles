@@ -25,4 +25,5 @@ def draw(shapes, file_name)
   end
 
   canvas.save(file_name)
+  puts "Wrote file to #{file_name}"
 end
