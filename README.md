@@ -3,9 +3,9 @@
 
 ## Usage
 
-This library uses [Chunky PNG](http://chunkypng.com/) to write PNG files.
+Use bundler to install dependencies.
 ```
-gem install chunky_png
+bundle install
 ```
 
 The main script is called `smile.rb` and is located in `lib/`. It takes four command-line arguments,
@@ -32,11 +32,6 @@ play around with it, you can probably figure out what they're for.
 Have fun!
 
 ##Tests
-
-Running the tests will require `RSpec` and `RSpec Core`
-```
-gem install rspec rspec-core
-```
 
 Specs can be run with
 ```
